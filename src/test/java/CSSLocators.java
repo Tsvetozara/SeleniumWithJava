@@ -11,11 +11,24 @@ public class CSSLocators {
         driver.get("https://demo.nopcommerce.com/");
         driver.manage().window().maximize();
 
-       //driver.findElement(By.cssSelector(".search-box-text")).sendKeys("T-shirts");
+        //CSS - Cascading Style Sheets
 
-        boolean displastatus = driver.findElement(By.xpath("//h3[text()='Featured']")).isDisplayed();
-        System.out.println(displastatus);
+        //By tag id    tag#id
+        driver.findElement(By.cssSelector("input#small-searchterms")).sendKeys("T-shirts");
+        //driver.findElement(By.cssSelector("#small-searchterms")).sendKeys("T-shirts"); //tag is optional
 
-        driver.findElement(By.xpath("//h3[text()='Featured']")).getText();
+        //By tag class    tag.classname
+        driver.findElement(By.cssSelector("input.search-box-text")).sendKeys("T-shirts");
+        //driver.findElement(By.cssSelector(".search-box-text")).sendKeys("T-shirts"); //tag is optional
+
+        //By tag attribute  tag[attribute="value"]
+        driver.findElement(By.cssSelector("input[placeholder='Search store']")).sendKeys("T-shirts");
+        driver.findElement(By.cssSelector("[placeholder='Search store']")).sendKeys("T-shirts"); //tag is optional
+
+        //By tag class attribute  tag.classname[attribute="value"]
+        driver.findElement(By.cssSelector("input.search-box-text[name='q']"));
+
+
+
     }
 }
